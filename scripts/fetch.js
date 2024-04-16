@@ -54,7 +54,6 @@ function genPk(){
     // Process the retrieved user data
     const audioPlayer = document.getElementById('audioPlayer');
     const audioSource = document.getElementById('audioSource');
-    let speech;
     //playAudio(pkData.cries.latest);
     const pkNameText = document.getElementById('pkNameText');
     const pkPic = document.getElementById('pkPic');
@@ -102,6 +101,12 @@ function getXData(pkUrl){
     const apiText = xData.flavor_text_entries[0].flavor_text;
     const flavorText = removeNewLines(apiText);
     console.log(xData.flavor_text_entries)
+    let speech;
+    speech = new p5.Speech(); // speech synthesis object
+  speech.started(startSpeaking);
+
+  speech.setVoice("Samantha");
+        speech.speak(pkName + '. ' + flavorText);
     console.log(flavorText);
     //console.log(flavorText);
     //remove_linebreaks_ss(apiText);
@@ -130,4 +135,7 @@ function remove_linebreaks_ss(str) {
       if (!(str[i] == "\n" || str[i] == "\r"))
           newstr += str[i];
   console.log("new string : "+newstr);
+}
+function startSpeaking() {
+  
 }
