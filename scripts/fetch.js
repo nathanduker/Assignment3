@@ -28,9 +28,9 @@ const pokemonNames = [
     "Mew"
 ];
 const lowercasePokemonNames = pokemonNames.map(name => name.toLowerCase());
-const apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[0]+'/';
 const pkListNumber = pokemonNames.length; //Number of pokemon found in the array
 let pkRandNumber = 0;
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[0]+'/';
 
 const submitButton = document.getElementById('change');
 const changeText = document.getElementById('changeText')
