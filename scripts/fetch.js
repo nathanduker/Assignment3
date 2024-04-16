@@ -52,8 +52,10 @@ function genPk(){
   .then(pkData => {
     // Process the retrieved user data
     const pkNameText = document.getElementById('pkNameText');
+    const pkPic = document.getElementById('pkPic');
     console.log('Pokemon Data:', pkData);
-    pkName = pkData.species.name;
+    pkName = pkData.species.name.toUpperCase();
+    pkPic.src = pkData.sprites.front_default;
     //console.log(pkData.sprites.front_default)
     //console.log('Pokemon Names Length: ' + pokemonNames.length);
     console.log('Pokemon Name: ' + pkName);
