@@ -54,12 +54,18 @@ function genPk(){
     // Process the retrieved user data
     const audioPlayer = document.getElementById('audioPlayer');
     const audioSource = document.getElementById('audioSource');
-    playAudio(pkData.cries.latest);
+    let speech;
+    //playAudio(pkData.cries.latest);
     const pkNameText = document.getElementById('pkNameText');
     const pkPic = document.getElementById('pkPic');
     console.log('Pokemon Data:', pkData);
     pkName = pkData.species.name.toUpperCase();
     pkPic.src = pkData.sprites.front_default;
+    const pkUrl = pkData.species.url;
+    getXData(pkUrl);
+    //////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////
     //console.log(pkData.sprites.front_default)
     //console.log('Pokemon Names Length: ' + pokemonNames.length);
     console.log('Pokemon Name: ' + pkName);
@@ -81,4 +87,47 @@ function playAudio(url) {
   audioSource.src = url;
   audioPlayer.load(); // Reload the audio element with the new source
   audioPlayer.play();
+}
+
+function getXData(pkUrl){
+
+  fetch(pkUrl)
+  .then(response =>{
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  }).then(xData =>{
+
+    const apiText = xData.flavor_text_entries[0].flavor_text;
+    const flavorText = removeNewLines(apiText);
+    console.log(xData.flavor_text_entries)
+    console.log(flavorText);
+    //console.log(flavorText);
+    //remove_linebreaks_ss(apiText);
+
+  })
+  .catch(error => {
+    console.log('Error:', error)
+  })
+
+
+}
+
+function removeNewLines(text) {
+  if (typeof text !== 'string') {
+    return text; // Return the original input if it's not a string
+}
+return text.replace(/[\n\f]/g, ' ');
+}
+
+function remove_linebreaks_ss(str) {
+  console.log(typeof str);
+  let newstr = "";
+   
+  // Looop and traverse string
+  for (let i = 0; i < str.length; i++)
+      if (!(str[i] == "\n" || str[i] == "\r"))
+          newstr += str[i];
+  console.log("new string : "+newstr);
 }
