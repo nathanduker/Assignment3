@@ -34,6 +34,9 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[pkRandNu
 
 const submitButton = document.getElementById('change');
 const changeText = document.getElementById('changeText')
+let pkName;
+let pkID;
+let pkType;
 
 // Make a GET request using the Fetch API
 
@@ -49,8 +52,10 @@ function genPk(){
   .then(pkData => {
     // Process the retrieved user data
     console.log('Pokemon Data:', pkData);
-    console.log(pkData.sprites.front_default)
-    console.log('Pokemon Names Length: ' + pokemonNames.length);
+    pkName = pkData.species.name;
+    //console.log(pkData.sprites.front_default)
+    //console.log('Pokemon Names Length: ' + pokemonNames.length);
+    console.log('Pokemon Name: ' + pkName);
 
   })
   .catch(error => {
@@ -61,4 +66,5 @@ function genPk(){
 function randomizePk(){
   pkRandNumber = Math.floor(Math.random() * 152);
   console.log('Pokemon Random Number: ' + pkRandNumber );
+  apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[pkRandNumber]+'/';
 }
