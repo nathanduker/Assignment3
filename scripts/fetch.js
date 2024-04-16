@@ -27,13 +27,13 @@ const pokemonNames = [
     "Zapdos", "Moltres", "Dratini", "Dragonair", "Dragonite", "Mewtwo",
     "Mew"
 ];
+const dataContainer = document.getElementById('datacontainer');
 const lowercasePokemonNames = pokemonNames.map(name => name.toLowerCase());
 const pkListNumber = pokemonNames.length; //Number of pokemon found in the array
 let pkRandNumber = 0;
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[pkRandNumber]+'/';
 
 const submitButton = document.getElementById('change');
-const changeText = document.getElementById('changeText')
 let pkName;
 let pkID;
 let pkType;
@@ -51,11 +51,13 @@ function genPk(){
   })
   .then(pkData => {
     // Process the retrieved user data
+    const pkNameText = document.getElementById('pkNameText');
     console.log('Pokemon Data:', pkData);
     pkName = pkData.species.name;
     //console.log(pkData.sprites.front_default)
     //console.log('Pokemon Names Length: ' + pokemonNames.length);
     console.log('Pokemon Name: ' + pkName);
+    pkNameText.innerHTML = `<p>${pkName}</p>`
 
   })
   .catch(error => {
