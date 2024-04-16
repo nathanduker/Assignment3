@@ -27,6 +27,7 @@ const pokemonNames = [
     "Zapdos", "Moltres", "Dratini", "Dragonair", "Dragonite", "Mewtwo",
     "Mew"
 ];
+
 const dataContainer = document.getElementById('datacontainer');
 const lowercasePokemonNames = pokemonNames.map(name => name.toLowerCase());
 const pkListNumber = pokemonNames.length; //Number of pokemon found in the array
@@ -51,6 +52,9 @@ function genPk(){
   })
   .then(pkData => {
     // Process the retrieved user data
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioSource = document.getElementById('audioSource');
+    playAudio(pkData.cries.latest);
     const pkNameText = document.getElementById('pkNameText');
     const pkPic = document.getElementById('pkPic');
     console.log('Pokemon Data:', pkData);
@@ -71,4 +75,10 @@ function randomizePk(){
   pkRandNumber = Math.floor(Math.random() * 152);
   console.log('Pokemon Random Number: ' + pkRandNumber );
   apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[pkRandNumber]+'/';
+}
+
+function playAudio(url) {
+  audioSource.src = url;
+  audioPlayer.load(); // Reload the audio element with the new source
+  audioPlayer.play();
 }
