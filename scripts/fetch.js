@@ -30,7 +30,7 @@ const pokemonNames = [
 const lowercasePokemonNames = pokemonNames.map(name => name.toLowerCase());
 const pkListNumber = pokemonNames.length; //Number of pokemon found in the array
 let pkRandNumber = 0;
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[0]+'/';
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[pkRandNumber]+'/';
 
 const submitButton = document.getElementById('change');
 const changeText = document.getElementById('changeText')
@@ -38,6 +38,7 @@ const changeText = document.getElementById('changeText')
 // Make a GET request using the Fetch API
 
 function genPk(){
+  randomizePk();
   fetch(apiUrl)
   .then(response => {
     if (!response.ok) {
