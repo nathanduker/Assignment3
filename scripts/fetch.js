@@ -38,8 +38,10 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+lowercasePokemonNames[pkRandNu
 const submitButton = document.getElementById('change');
 let pkName;
 let pkID;
-let pkType;
+let pkType1;
+let pkType2;
 let speech;
+let moreTypes = false;
 
 // Make a GET request using the Fetch API
 
@@ -61,6 +63,20 @@ function genPk(){
     const pkPic = document.getElementById('pkPic');
     console.log('Pokemon Data:', pkData);
     pkName = pkData.species.name.toUpperCase();
+
+    if (pkData.types.length >1){
+      moreTypes = true;
+      pkType1 = pkData.types[0].type.name;
+      pkType2 = pkData.types[1].type.name;
+      
+    }
+
+    else{
+      moreTypes = false;
+      pkType1 = pkData.types[0].type.name;
+    }
+
+    
     pkPic.src = pkData.sprites.front_default;
     const pkUrl = pkData.species.url;
     getXData(pkUrl);
@@ -112,7 +128,16 @@ function getXData(pkUrl){
   speech.started();
 
     speech.cancel();
-    speech.speak(pkName + '........' + flavorText);
+    speech.setPitch(0.85)
+
+    if(moreTypes == false){
+      speech.speak(pkName + '........' + "A " + pkType1 + " type Pokémon. " + flavorText);
+    }
+
+    else{
+      speech.speak(pkName + '........' + "A " + pkType1 + "and " + pkType2 + "type Pokémon. " + flavorText);
+    }
+    
     console.log(flavorText);
     pkDescText.innerHTML = flavorText;
     //console.log(flavorText);

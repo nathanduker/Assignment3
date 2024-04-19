@@ -1,6 +1,7 @@
 #pkPic {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
+    margin-top: 10px;
 }
 
 body, html {
@@ -165,6 +166,8 @@ footer {
   outline: var(--b) solid #0000;
   outline-offset: .6em;
   font-size: 16px;
+  font-family: "Anta", sans-serif;
+    font-weight: 1000;
 
   border: 0;
 
@@ -178,7 +181,9 @@ footer {
   --_p: 0px;
   outline-color: var(--color);
   outline-offset: .05em;
-  background-color: cyan;
+  background-color: rgb(0, 81, 255);
+  color: white;
+  
 }
 
 .button-89:active {
