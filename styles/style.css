@@ -7,7 +7,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: #b51e23;
+    background: white;
     font-family: "Questrial", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -20,7 +20,7 @@ body, html {
 }
 
 header {
-    background-color: white;
+    background-color: #b51e23;
     color: #fff;
     padding: 10px 0;
 }
@@ -44,7 +44,9 @@ nav {
 
 .navbar li a {
     text-decoration: none;
-    color: black;
+    color: white;
+    font-family: "Anta", sans-serif;
+    font-weight: 1000;
 }
 
 .main {
@@ -75,12 +77,17 @@ nav {
     /*border-bottom: solid black 20px;*/
 }
 
+.grid-item p{
+    font-family: "Anta", sans-serif;
+    font-weight: 500;
+}
+
 #lastItem{
     background: black;
     color: white;
 }
 
-#pkNameText{
+#pkNameText, #pkTypes{
     margin-top: 70px;
 
     font-family: "Anta", sans-serif;
@@ -89,18 +96,25 @@ nav {
     font-style: normal;  
 }
 
+#pkContainer{
+    border: black solid 2px;
+    
+}
+
 #pkDescText{
     margin-top: 1vw;
     font-family: "Anta", sans-serif;
     font-weight: 500;
     font-size: 1.5vw;
     font-style: normal;
-    color: white;  
+    color: black;  
 }
 
-#pkDescCont{
-    background-color: black;
+#pkDescCont, #beforeLast{
+    background-color: white;
+    border-top: black solid 2px;
 }
+
 
 
 footer {
@@ -121,6 +135,7 @@ footer {
   --b: 3px;   /* border thickness */
   --s: .45em; /* size of the corner */
   --color: #373B44;
+  margin-top: 70px;
   
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
   color: var(--color);
