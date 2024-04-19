@@ -69,7 +69,6 @@ nav {
     flex: 1 1 calc(25% - 20px);
     margin: 10px;
     height: 200px;
-    background-color: white;
     padding: 20px;
     text-align: center;
     justify-content: center; /* Center horizontally */
@@ -91,14 +90,29 @@ nav {
     margin-top: 70px;
 
     font-family: "Anta", sans-serif;
-    font-weight: 1000;
+    font-weight: 500;
     font-size: 50px;
     font-style: normal;  
 }
 
 #pkContainer{
     border: black solid 2px;
+    background-color: #b51e23;
     
+
+}
+
+.datacontainer{
+    border: black solid 2px;
+    background-color: white;
+    
+    background-image: url("../assets/images/screen.png");
+    background-size: 270px 270px;
+    background-repeat: no-repeat;
+    /*background-size: cover; /* or specify size like background-size: 100% 100%; */
+    background-position: center; /* or specify position like background-position: top left; */
+    width: 100%; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
 }
 
 #pkDescText{
@@ -125,6 +139,10 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+#centerItem{
+    border: black solid 2px;
 }
 
 
@@ -160,6 +178,7 @@ footer {
   --_p: 0px;
   outline-color: var(--color);
   outline-offset: .05em;
+  background-color: cyan;
 }
 
 .button-89:active {
