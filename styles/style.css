@@ -2,3 +2,153 @@
     width: 200px;
     height: 200px;
 }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #b51e23;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+header {
+    background-color: white;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: black;
+}
+
+.main {
+    padding: 20px 0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.letter{
+    font-size: 100px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    font-weight: 900;
+}
+
+.grid-item {
+    flex: 1 1 calc(25% - 20px);
+    margin: 10px;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    /*border-bottom: solid black 20px;*/
+}
+
+#lastItem{
+    background: black;
+    color: white;
+}
+
+#pkNameText{
+    margin-top: 70px;
+
+    font-family: "Anta", sans-serif;
+    font-weight: 1000;
+    font-size: 50px;
+    font-style: normal;  
+}
+
+#pkDescText{
+    margin-top: 1vw;
+    font-family: "Anta", sans-serif;
+    font-weight: 500;
+    font-size: 1.5vw;
+    font-style: normal;
+    color: white;  
+}
+
+#pkDescCont{
+    background-color: black;
+}
+
+
+footer {
+    background-color: white;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+/* CSS */
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+

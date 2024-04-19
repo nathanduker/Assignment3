@@ -28,6 +28,7 @@ const pokemonNames = [
     "Mew"
 ];
 
+let isSpeaking = false;
 const dataContainer = document.getElementById('datacontainer');
 const lowercasePokemonNames = pokemonNames.map(name => name.toLowerCase());
 const pkListNumber = pokemonNames.length; //Number of pokemon found in the array
@@ -38,6 +39,7 @@ const submitButton = document.getElementById('change');
 let pkName;
 let pkID;
 let pkType;
+let speech;
 
 // Make a GET request using the Fetch API
 
@@ -87,7 +89,10 @@ function playAudio(url) {
   audioPlayer.load(); // Reload the audio element with the new source
   audioPlayer.play();
 }
+function getSoundData(){
 
+  
+}
 function getXData(pkUrl){
 
   fetch(pkUrl)
@@ -100,14 +105,16 @@ function getXData(pkUrl){
 
     const apiText = xData.flavor_text_entries[0].flavor_text;
     const flavorText = removeNewLines(apiText);
+    const pkDescText = document.getElementById("pkDescText");
     console.log(xData.flavor_text_entries)
-    let speech;
-    speech = new p5.Speech(); // speech synthesis object
-  speech.started(startSpeaking);
+    
+    speech = new p5.Speech(voiceReady); // speech synthesis object
+  speech.started();
 
-  speech.setVoice("Samantha");
-        speech.speak(pkName + '. ' + flavorText);
+    speech.cancel();
+    speech.speak(pkName + '........' + flavorText);
     console.log(flavorText);
+    pkDescText.innerHTML = flavorText;
     //console.log(flavorText);
     //remove_linebreaks_ss(apiText);
 
@@ -118,6 +125,8 @@ function getXData(pkUrl){
 
 
 }
+
+
 
 function removeNewLines(text) {
   if (typeof text !== 'string') {
@@ -136,6 +145,6 @@ function remove_linebreaks_ss(str) {
           newstr += str[i];
   console.log("new string : "+newstr);
 }
-function startSpeaking() {
-  
+function voiceReady() {
+  console.log('Voices: ', speech.voices);
 }

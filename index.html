@@ -7,26 +7,70 @@
     <script src="scripts/fetch.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
-    <script src="scripts/p5.speech.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/IDMNYU/p5.js-speech@0.0.3/lib/p5.speech.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <!--<script src="scripts/p5.speech.js"></script>-->
 </head>
 <body>
-    
-    <div class="container">
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo"></div>
+                <ul class="navbar">
+                    <li><a href="#">POKeDEX</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-        <div class="datacontainer">
+    <main>
+        <div class="container">
+            <section class="grid">
+                <div class="grid-item" id="pkNameCont">
 
-            <audio id="audioPlayer" controls>
-                <source id="audioSource" type="audio/ogg">
-                Your browser does not support the audio element.
-            </audio>
+                    <p id="pkNameText">PK NAME</p>
 
-            <img src="" alt="pokemon_image" id="pkPic">
-            <p id="pkNameText">Awaiting Pokemon Input...</p>
-            <button id="change" onclick="genPk()">NEW POKEMON</button>
+                </div>
+                <div class="grid-item">
+                    <div class="datacontainer">
 
+                        <audio id="audioPlayer">
+                            <source id="audioSource" type="audio/ogg">
+                            Your browser does not support the audio element.
+                        </audio>
+            
+                        <img src="assets/images/pkball.png" alt="pokemon_image" id="pkPic">
+                        
+            
+                    </div>
+                </div>
+                <div class="grid-item">
+                </div>
+                <div class="grid-item" id="pkDescCont">
+                    <p id="pkDescText">PK NAME</p>
+
+                </div>
+                <div class="grid-item">
+                    <button id="changeButton" onclick="genPk()" class="button-89">NEW POKEMON</button>
+                </div>
+                <div class="grid-item">
+                    <p>Types</p>
+                </div>
+                <div class="grid-item" id="lastItem">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, assumenda! Voluptates ipsum doloribus debitis et quos suscipit dolor eveniet architecto in deleniti praesentium doloremque error soluta, id obcaecati repudiandae at.</p>
+                </div>
+            </section>
         </div>
+    </main>
 
-    </div>
+    <footer>
+        <div class="container">
+            <p>ONLINE POKeDEX</p>
+        </div>
+    </footer>
     
 </body>
 </html>
