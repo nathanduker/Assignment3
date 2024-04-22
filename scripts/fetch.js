@@ -1,3 +1,15 @@
+const API_KEY = "";
+const url = "https://api.openai.com/v1/completions";
+let options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${API_KEY}`,
+  },
+};
+
+let myOutputText = "";
+
 // Specify the API endpoint for user data
 const pokemonNames = [
     "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
@@ -122,6 +134,7 @@ function getXData(pkUrl){
     const apiText = xData.flavor_text_entries[0].flavor_text;
     const flavorText = removeNewLines(apiText);
     const pkDescText = document.getElementById("pkDescText");
+    const pkTypeText = document.getElementById("pkTypes")
     console.log(xData.flavor_text_entries)
     
     speech = new p5.Speech(voiceReady); // speech synthesis object
@@ -131,15 +144,16 @@ function getXData(pkUrl){
     speech.setPitch(0.85)
 
     if(moreTypes == false){
-      speech.speak(pkName + '........' + "A " + pkType1 + " type Pokémon. " + flavorText);
+      speech.speak(pkName + '........'  + pkType1 + " type Pokémon. " + flavorText);
     }
 
     else{
-      speech.speak(pkName + '........' + "A " + pkType1 + "and " + pkType2 + "type Pokémon. " + flavorText);
+      speech.speak(pkName + '........'  + pkType1 + "and " + pkType2 + "type Pokémon. " + flavorText);
     }
     
     console.log(flavorText);
     pkDescText.innerHTML = flavorText;
+    pkTypeText.innerHTML = pkType1.toUpperCase() + " Type";
     //console.log(flavorText);
     //remove_linebreaks_ss(apiText);
 
@@ -149,6 +163,25 @@ function getXData(pkUrl){
   })
 
 
+}
+
+function playPk(){
+  fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(pkData => {
+    // Process the retrieved user data
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioSource = document.getElementById('audioSource');
+    playAudio(pkData.cries.latest);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 }
 
 
@@ -172,4 +205,42 @@ function remove_linebreaks_ss(str) {
 }
 function voiceReady() {
   console.log('Voices: ', speech.voices);
+}
+
+function getText() {
+  const inputValue = "Tell me an interesting new one sentence fact about " + pkName; // Set input value to "Tell me a joke"
+  console.log("myinput", inputValue);
+  if (!inputValue || inputValue.length <= 0) {
+    return;
+  }
+  // You can go to https://platform.openai.com/examples to find one example you like
+  // And copy paste the sample optiosn with "node.js"
+  // Don't forget to still include inputValue in the prompt
+  options.body = JSON.stringify({
+    model: "gpt-3.5-turbo-instruct",
+    prompt: inputValue,
+    temperature: 0.7,
+    max_tokens: 64,
+    top_p: 1.0,
+    frequency_penalty: 0.0,
+    presence_penalty: 0.0,
+  });
+  fetch(url, options)
+    .then((response) => {
+      console.log("response", response);
+      const res = response.json();
+      return res;
+    })
+    .then((response) => {
+      if (response.choices && response.choices[0]) {
+        const pkFact = document.getElementById("pkFact");
+        myOutputText += response.choices[0].text;
+        //myOutput.html(myOutputText);
+        speech.cancel();
+        speech.setVoice("Moira");
+        speech.speak(response.choices[0].text);
+        pkFact.innerHTML = response.choices[0].text;
+
+      }
+    });
 }
