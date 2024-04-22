@@ -66,15 +66,12 @@ This project is hosted on Github and Glitch.io. Github renders markdown files.
 
 <!-- How you built this project - Include images, gifs, and notes here -->
 
-I've been feeling very scattered lately. So I think it would be interesting to put together a small site that encapsulates an amalgamation of links, videos and pieces of media that reflect my overall mood. Something dark, not edgy but meaningful. I'd like to see if I can visualise links perhaps as pieces of glass or fragments that exist to make up a larger being/item. I feel fragmented. So I want to build something that falls within the theme of fragmentation. And hopefully make it functional along the way. It's been a  while since I've built anything for the Web, so I'm excited. 
+For this week's project, I wanted to try and build something with a focus on simply pulling data from somewhere and then displaying it. To make it more fun and interesting, I decided to focus on the theme of Pokemon. It's lighthearted, and my childhood. A key item from the Pokemon franchise is the Pokedex, a device that exists to catalogue every single Pokemon species in existence. It's a classic item that synonymous with the franchise. With today's online services, API's, text to speech and AI, building a web based Pokedex is a fun project that any developer can take on for fun!
 
-Monotone. Black and white. Retro feel. That's what I want to go for. Something not too complicated but interesting regardless. I want it to have an almost fantasy game aesthetic.
+When I started out, acdmittedly I hadn't sketched out a specific layout. What I did know was that I wanted to make it so that the site itself is very reminiscent of a Pokedex. The screenshot below should emulate what I had in mind in terms of the format. Pokedex screen at the top, front and center. Pokedex buttons at the bottom. Plain and simple. 
 
-Documenting my thoughts on how it's going so far. I like the idea of using simple shapes and black and white to build what I'm currently working on at the moment. I'm thinking aout how I can make this some kind of art piece somehow? I haven't built a site in a minute, so I'm using some of ChatGPT as a co-pilot in trying to build this out. It's been serving as a good refresher on how CSS works as a whole.
+![image](https://github.com/nathanduker/Assignment3/assets/157427640/bbb4428d-d59c-49c3-b3bc-966f0ea098ec)
 
-As I'm building the site, I'm sowly but surely remembering some of the key functionalities that CSS affords, which is great. I actually used to struggle a tiny bit with CSS before, but things are a lot more clearer now in hindsight. 
-
-My initial idea for this as an art piece was to make it almost like a tiny gallery experience. But for the sake o keeping it simple I will just move forward with keeping it as is! I've always liked the idea of creating a calm, online space for the sake of meditaton, reflection and relaxation. This is what I wanted this to be. 
 
 ## Process & Documentation
 
