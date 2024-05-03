@@ -72,6 +72,9 @@ When I started out, acdmittedly I hadn't sketched out a specific layout. What I 
 
 ![image](https://github.com/nathanduker/Assignment3/assets/157427640/bbb4428d-d59c-49c3-b3bc-966f0ea098ec)
 
+![image](https://github.com/nathanduker/Assignment3/assets/157427640/ebf81685-13ba-4dca-9e72-d2809ac0a3a4)
+
+
 
 ## Process & Documentation
 
